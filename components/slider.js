@@ -15,6 +15,9 @@ const CustomSlider = ({label, inputValue, onChange, min, max, isCurrency}) => (
       minimumValue={min}
       maximumValue={max}
       value={inputValue}
+      thumbTintColor='#fff'
+      minimumTrackTintColor='#fff'
+      maximumTrackTintColor='#fff'
       onSlidingComplete={onChange}
     />
     <View style={styles.flexRow}>
