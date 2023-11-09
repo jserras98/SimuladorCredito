@@ -2,11 +2,13 @@ import React from "react";
 import Slider from "@react-native-community/slider";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
-const CustomSlider = ({label, inputValue, onChange, min, max}) => (
+const CustomSlider = ({label, inputValue, onChange, min, max, isCurrency}) => (
   <View style={styles.container}>
     <View style={styles.flexRow}>
-      <Text>{label}</Text>
-      <TextInput style={styles.input} value={inputValue + ""} onSubmitEditing={onChange} keyboardType="numeric" />
+      <Text style={{color: 'white', fontSize: 15}}>{label}</Text>
+      {isCurrency ?
+      <Text style={styles.input}>$ {inputValue}</Text> :
+      <Text style={styles.input}>{inputValue}</Text>}
     </View>
     <Slider
       style={styles.slider}
@@ -16,8 +18,12 @@ const CustomSlider = ({label, inputValue, onChange, min, max}) => (
       onSlidingComplete={onChange}
     />
     <View style={styles.flexRow}>
-    <Text>{min}</Text>
-    <Text>{max}</Text>
+    {isCurrency ?
+    <Text style={{color: 'white', fontSize: 15}}>$ {max}</Text> :
+    <Text style={{color: 'white', fontSize: 15}}>{max}</Text>}
+    {isCurrency ?
+    <Text style={{color: 'white', fontSize: 15}}>$ {min}</Text>:
+    <Text style={{color: 'white', fontSize: 15}}>{min}</Text>}
     </View>
   </View>
 );
@@ -38,9 +44,11 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 2,
-    borderColor: "black",
+    borderColor: "white",
     paddingHorizontal: 20,
-    paddingVertical: 1,
-    color: "black",
+    color: 'white',
+    fontSize: 25,
+    width: 140,
+    textAlign: 'center'
   },
 });
