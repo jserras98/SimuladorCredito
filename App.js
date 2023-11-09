@@ -25,7 +25,7 @@ export default function App() {
     let interes = montoInt*0.9798
     let devolver = montoInt + interes
     let total = devolver / plazoInt
-    setCuota(total.toFixed(0))
+    setCuota(total.toFixed(2))
   }
 
   return (
@@ -37,6 +37,7 @@ export default function App() {
         min={5000}
         max={50000}
         isCurrency={true}
+        step={500}
       />
       <CustomSlider
         label="Plazo"
@@ -45,6 +46,7 @@ export default function App() {
         min={3}
         max={24}
         isCurrency={false}
+        step={1}
       />
       <View style={[styles.flexRow, {backgroundColor: '#00355d', padding: 10, alignItems: 'center', borderRadius: 5}]}>
         <Text style={{color: 'white', fontWeight: 'bold', fontSize: 15}}>CUATO FIJA POR MES</Text>
